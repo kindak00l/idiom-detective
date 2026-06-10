@@ -20,8 +20,8 @@ const state = {
 };
 
 const validAccounts = Array.from({ length: 25 }, (_, i) => `admin${i + 1}`);
-const GOOGLE_CLIENT_ID = "PASTE_YOUR_GOOGLE_CLIENT_ID_HERE.apps.googleusercontent.com";
-const GOOGLE_CLIENT_ID_PLACEHOLDER = "PASTE_YOUR_GOOGLE_CLIENT_ID_HERE.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "972001194250-93krbd7r9441mtg804um81c1mmdo00r7.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID_PLACEHOLDER = "972001194250-93krbd7r9441mtg804um81c1mmdo00r7.apps.googleusercontent.com";
 
 // --- Helper Functions ---
 function escapeHTML(value) {
