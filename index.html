@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idiom Detective</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="userInfoBar"></div>
+
+<header>
+  <svg class="header-decor" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" fill="#FFD273" />
+    <circle cx="45" cy="45" r="5" fill="#3a3a52" />
+    <circle cx="65" cy="45" r="5" fill="#3a3a52" />
+    <path d="M35 65 C 50 80, 60 80, 75 65" stroke="#3a3a52" stroke-width="4" stroke-linecap="round" />
+    <path d="M25 35 L 45 25 L 40 40 Z" fill="#3a3a52" />
+    <path d="M75 35 L 55 25 L 60 40 Z" fill="#3a3a52" />
+  </svg>
+  <h1>🕵️‍♂️ Idiom Detective</h1>
+  <p>"Your Case File for Mastering English Idioms"</p>
+
+  <nav>
+    <a href="#" class="active" onclick="showTab('home'); return false;">Headquarters</a>
+    <a href="#" onclick="showTab('maze'); initGame(); return false;">🎮 Detective Maze</a>
+    <a href="#" onclick="showTab('cases'); return false;">Case Files</a>
+    <a href="#" id="navContribute" onclick="showTab('contribute'); return false;">Open a New Case</a>
+    <a href="#" id="navSaved" style="display: none" onclick="showTab('saved'); return false;">My Notebook</a>
+    <a href="#" id="navLogin" onclick="showTab('login'); return false;">Investigator ID</a>
+  </nav>
+</header>
+
+<div class="main-container">
+  <!-- TRANG CHỦ -->
+  <div id="home" class="tab-page active">
+    <div class="search-section">
+      <h2>Open a Case</h2>
+      <div class="search-bar">
+        <input type="text" id="idiomInput" placeholder="Enter the suspicious idiom" />
+        <button id="searchBtn">INVESTIGATE</button>
+      </div>
+      <div id="homeSearchResults" class="cases-grid" style="margin-top: 25px; display: none;"></div>
+    </div>
+
+    <div class="evidence-grid">
+      <div class="card col-6 bg-pink">
+        <h3 class="card-title" id="homeCaseTitle">🐷 CASE FILE: when pigs fly</h3>
+        <div class="illustration-box">
+          <svg width="160" height="140" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="30" r="15" fill="#fff" opacity="0.6" />
+            <circle cx="130" cy="40" r="20" fill="#fff" opacity="0.6" />
+            <ellipse cx="80" cy="80" rx="45" ry="35" fill="#ffb6c1" stroke="#3a3a52" stroke-width="3" />
+            <circle cx="115" cy="75" r="22" fill="#ffb6c1" stroke="#3a3a52" stroke-width="3" />
+            <ellipse cx="128" cy="78" rx="8" ry="6" fill="#fca6d1" stroke="#3a3a52" stroke-width="2" />
+            <circle cx="125" cy="78" r="1.5" fill="#3a3a52" />
+            <circle cx="131" cy="78" r="1.5" fill="#3a3a52" />
+            <circle cx="112" cy="68" r="2.5" fill="#3a3a52" />
+            <path d="M102 55 Q108 45 114 55 Z" fill="#ffb6c1" stroke="#3a3a52" stroke-width="2" />
+            <path d="M65 50 Q50 20 35 35 Q50 45 62 55 Z" fill="#fff" stroke="#3a3a52" stroke-width="2.5" />
+            <path d="M75 48 Q65 15 50 28 Q62 40 72 52 Z" fill="#fff" stroke="#3a3a52" stroke-width="2" />
+            <path d="M35 80 Q25 75 30 70 Q35 65 28 60" stroke="#3a3a52" stroke-width="3" fill="none" stroke-linecap="round" />
+            <rect x="55" y="112" width="10" height="12" rx="3" fill="#ffb6c1" stroke="#3a3a52" stroke-width="2" />
+            <rect x="85" y="112" width="10" height="12" rx="3" fill="#ffb6c1" stroke="#3a3a52" stroke-width="2" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="card col-6 bg-yellow">
+        <h3 class="card-title">🧩 Evidence: Idiom Breakdown</h3>
+        <p style="font-size: 13px; margin-top: 0; font-style: italic;">Separate word meaning</p>
+        <div class="breakdown-container" id="homeBreakdownContainer">
+          <div class="jigsaw-word" onclick="showClue(this, 'when', '(adv): Khi nào, vào lúc nào (từ chỉ thời gian)')">when</div>
+          <div class="jigsaw-word" onclick="showClue(this, 'pigs', '(noun): Những chú lợn / heo (loài vật nặng nề, không biết bay)')">pigs</div>
+          <div class="jigsaw-word" onclick="showClue(this, 'fly', '(verb): Bay lượn trên bầu trời bằng cánh)')">fly</div>
+        </div>
+        <div class="clue-display" id="clueBox">💡 <em>Click on each word to see their seperate case file.</em></div>
+      </div>
+
+      <div class="card col-4 bg-orange">
+        <h3 class="card-title">💡 Case Solution</h3>
+        <p style="font-weight: 600; font-size: 16px" id="homeEnglishMeaning">"Something that will never happen or is completely impossible."</p>
+        <p style="font-size: 13px; border-top: 1px dashed rgba(0,0,0,0.1); padding-top: 10px;" id="homeDesc">Dùng để nhấn mạnh một sự việc chắc chắn không bao giờ có thể xảy ra trong thực tế.</p>
+      </div>
+
+      <div class="card col-8 bg-lavender">
+        <h3 class="card-title">📜 Case Origins</h3>
+        <p style="font-size: 14px; text-align: justify" id="homeStory">Thành ngữ này xuất hiện từ thế kỷ 16 trong các văn bản cổ của Scotland dưới dạng một câu tục ngữ châm biếm. Người xưa mượn hình ảnh con lợn – vốn có thân hình nặng nề, cục mịch và hoàn toàn không có khả năng bay – để phóng đại sự vô lý. Khi ai đó hứa hẹn một điều viển vông, người ta sẽ đáp lại: <em>"Phải, điều đó sẽ xảy ra khi những chú lợn biết bay!"</em> để biểu thị sự hoài nghi tuyệt đối.</p>
+      </div>
+
+      <div class="card col-6 bg-purple">
+        <h3 class="card-title">🇻🇳 The Equivalent Locker</h3>
+        <p style="font-size: 13px; font-style: italic;">Đối chiếu liên văn hóa tương thích:</p>
+        <div style="margin-top: 10px" id="homeVietnameseEquivalents">
+          <span class="equiv-badge">📅 Đến mùa quýt năm sau</span>
+          <span class="equiv-badge">☀️ Mặt trời mọc đằng Tây</span>
+          <span class="equiv-badge">🌊 Sông cạn đá mòn</span>
+          <span class="equiv-badge">🦬 Chờ đến tết Công-gô</span>
+        </div>
+      </div>
+
+      <div class="card col-6 bg-pink">
+        <h3 class="card-title">💬 Witness Statements</h3>
+        <div style="background: white; padding: 12px; border-radius: 8px; font-size: 14px; border: 1px solid rgba(0,0,0,0.1);" id="homeContextExample">
+          <p style="margin: 0 0 8px 0"><strong>Học sinh A:</strong> "Cậu nghĩ ngày mai thầy có quên kiểm tra bài tập về nhà không?"</p>
+          <p style="margin: 0"><strong>Học sinh B:</strong> "Yeah, <strong>when pigs fly</strong>! Thầy không bao giờ quên đâu mờ."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="gamify-actions">
+      <button class="btn-gamify" onclick="saveIdiom(state.currentSelectedIdiom || 'When pigs fly')">➕ Save to My Notebook</button>
+      <button class="btn-gamify" style="background-color: var(--color-orange);" onclick="exportToBlooket(state.currentSelectedIdiom || 'When pigs fly')">🎮 Export to Blooket / Quizizz</button>
+    </div>
+
+    <div class="community-box">
+      <div class="community-header">
+        <h3>🤝 Community Detective Network</h3>
+      </div>
+      <p style="font-size: 14px; color: #555; margin-top: -10px; margin-bottom: 20px;">Cộng đồng học sinh Việt Nam cùng nhau tối ưu hóa ý nghĩa và tìm kiếm các cụm từ bắt trend, sát nghĩa nhất:</p>
+      <div class="contribution-list" id="contribList">
+        <div class="contribution-item">
+          <div class="item-details">
+            <strong>"Còn khuya nhé! / Đừng có mơ!"</strong>
+            <p>Bởi thám tử học đường: <em>@langson_genius</em> • 5 phút trước</p>
+          </div>
+          <div class="voting-panel">
+            <button class="btn-vote" id="vote-up-1" onclick="handleVote('1', 'up', this)">👍 <span>54</span></button>
+            <button class="btn-vote" id="vote-down-1" onclick="handleVote('1', 'down', this)">👎 <span>1</span></button>
+          </div>
+        </div>
+        <div class="contribution-item">
+          <div class="item-details">
+            <strong>"Mơ đi Diễm!"</strong>
+            <p>Bởi thám tử học đường: <em>@saigon_teen9x</em> • 2 giờ trước</p>
+          </div>
+          <div class="voting-panel">
+            <button class="btn-vote" id="vote-up-2" onclick="handleVote('2', 'up', this)">👍 <span>42</span></button>
+            <button class="btn-vote" id="vote-down-2" onclick="handleVote('2', 'down', this)">👎 <span>3</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MÊ CUNG -->
+  <div id="maze" class="tab-page">
+    <div class="card bg-purple" style="text-align: center">
+      <h2 style="margin: 0">🧩 Detective Maze</h2>
+      <p>Wrong answer = wall blocks. Dead end = game over. Finish line = +100 XP!</p>
+    </div>
+    <div class="game-container">
+      <canvas id="mazeCanvas" width="560" height="560"></canvas>
+      <div class="modal-overlay" id="quizOverlay">
+        <div class="quiz-box">
+          <div class="quiz-question" id="quizQuestion">What does it mean?</div>
+          <div id="quizOptions"></div>
+        </div>
+      </div>
+      <div class="modal-overlay" id="msgOverlay">
+        <div class="msg-box">
+          <h2 id="msgTitle">Game Over!</h2>
+          <p id="msgDesc">You're stuck in this case forever!</p>
+          <button class="btn-action" onclick="initGame()">Play Again</button>
+        </div>
+      </div>
+    </div>
+    <div class="game-controls">
+      <p>Use the <span class="keyboard-keys"><span>W</span> <span>A</span> <span>S</span> <span>D</span></span> keys to move.</p>
+      <button class="btn-action" style="background-color: var(--color-pink);" onclick="initGame()">🔄 Create a new Detective Maze</button>
+    </div>
+    <div class="ranking-menu">
+      <h3 style="margin-top: 0; text-align: center;">🏆 Detective Hall of Fame (Top 8)</h3>
+      <div id="leaderboardList"></div>
+    </div>
+  </div>
+
+  <!-- HỒ SƠ VỤ ÁN -->
+  <div id="cases" class="tab-page">
+    <h2>🔍 Case Files - Search hundreds of English idioms.</h2>
+    <div class="cases-grid" id="casesGrid"></div>
+  </div>
+
+  <!-- CHI TIẾT IDIOM -->
+  <div id="idiom-detail" class="tab-page">
+    <button class="btn-action" style="margin-bottom: 20px; background-color: var(--color-yellow);" onclick="showTab('cases')">⬅ Back to Case Files</button>
+    <div class="card bg-lavender" style="text-align: center; padding: 40px; border-width: 4px;">
+      <div id="detailTags" style="margin-bottom: 15px;"></div>
+      <h2 id="detailTitle" style="font-size: 36px; margin: 10px 0;">Title</h2>
+      <p id="detailDesc" style="font-size: 22px; font-weight: bold;"></p>
+      <p id="detailExample" style="font-size: 18px; font-style: italic; background: white; padding: 15px; border-radius: 8px; border: 2px dashed var(--color-dark); display: inline-block;"></p>
+    </div>
+    <div class="form-container" style="max-width: 100%; margin-top: 30px;">
+      <h3>📝 Detective Notes</h3>
+      <div class="form-group">
+        <textarea id="detailNotes" rows="6" placeholder="Gõ ghi chú của bạn vào đây..."></textarea>
+      </div>
+      <button class="btn-action" id="saveNoteBtn">💾 Save Notes</button>
+      <button class="btn-action" id="detailSaveIdiomBtn" style="background-color: var(--color-pink); margin-left: 10px;">➕ Save to My Notebook</button>
+    </div>
+    <div class="community-box" style="margin-top: 30px;">
+      <div class="community-header">
+        <h3>Community Detective Network</h3>
+        <button class="btn-action" id="detailSubmitTransBtn">Contribute a Solution</button>
+      </div>
+      <div class="contribution-list" id="detailContribList"></div>
+    </div>
+  </div>
+
+  <!-- ĐÓNG GÓP -->
+  <div id="contribute" class="tab-page">
+    <div class="form-container bg-lavender">
+      <h2>✍️ Open a New Case</h2>
+      <p style="text-align: center; margin-bottom: 20px">Send your new idiom for the community.</p>
+      <form id="contribForm">
+        <div class="form-group">
+          <label>Idiom / Phrase (English)</label>
+          <input type="text" name="English_Idiom" placeholder="E.g.: Under the weather" required />
+        </div>
+        <div class="form-group">
+          <label>Vietnamese Meaning & Context</label>
+          <textarea name="Vietnamese_Meaning" rows="3" placeholder="E.g.: Cảm thấy mệt mỏi, ốm yếu..." required></textarea>
+        </div>
+        <button type="submit" class="btn-action" style="width: 100%">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SỔ TAY -->
+  <div id="saved" class="tab-page">
+    <h2>📚 My Notebook (Saved Cases)</h2>
+    <div style="margin-bottom: 30px">
+      <button class="btn-gamify" onclick="exportAllSavedToBlooket()">🎮 Export all to Blooket (CSV)</button>
+    </div>
+    <div class="cases-grid" id="savedGrid"></div>
+  </div>
+
+  <!-- ĐĂNG NHẬP -->
+  <div id="login" class="tab-page">
+    <div class="login-form">
+      <h2>🔐 Investigator ID</h2>
+      <p style="text-align: center; color: #666; font-size: 13px">Sign in with Google to unlock My Notebook, voting, and XP features.</p>
+      <div id="googleSignInButton" class="google-signin-box"></div>
+      <p id="googleSignInStatus" class="login-help-text">Add your Google OAuth Client ID in script.js to activate this button.</p>
+      <details class="fallback-login">
+        <summary>Use demo investigator account</summary>
+        <p style="text-align: center; color: #666; font-size: 13px">Demo accounts: admin1 to admin25 | Password: 123456</p>
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="username">👤 Username</label>
+            <input type="text" id="username" placeholder="Enter your username" />
+          </div>
+          <div class="form-group">
+            <label for="password">🔑 Password</label>
+            <input type="password" id="password" placeholder="Enter your password" />
+          </div>
+          <button type="submit" class="btn-login">Sign in with demo account</button>
+        </form>
+      </details>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Idiom Detective - Group 3, Technology-Assisted Language Learning</p>
+</footer>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
