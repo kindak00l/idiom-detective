@@ -533,7 +533,7 @@ function initGoogleSignIn(retries = 20) {
   const status = document.getElementById("googleSignInStatus");
   if (!buttonContainer) return;
 
-  if (GOOGLE_CLIENT_ID === GOOGLE_CLIENT_ID_PLACEHOLDER) {
+  if (!GOOGLE_CLIENT_ID || GOOGLE_CLIENT_ID.includes("PASTE_YOUR_GOOGLE_CLIENT_ID_HERE")) {
     status.innerText = "Google sign-in is ready to configure. Replace GOOGLE_CLIENT_ID in script.js with your real OAuth Client ID.";
     return;
   }
