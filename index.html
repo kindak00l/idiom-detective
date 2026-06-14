@@ -47,7 +47,7 @@
     <div class="evidence-grid">
       <div class="card col-6 bg-pink">
         <h3 class="card-title" id="homeCaseTitle">🐷 CASE FILE: when pigs fly</h3>
-        <div class="illustration-box">
+        <div class="illustration-box" id="homeIllustrationBox">
           <svg width="160" height="140" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="40" cy="30" r="15" fill="#fff" opacity="0.6" />
             <circle cx="130" cy="40" r="20" fill="#fff" opacity="0.6" />
@@ -69,13 +69,13 @@
 
       <div class="card col-6 bg-yellow">
         <h3 class="card-title">🧩 Evidence: Idiom Breakdown</h3>
-        <p style="font-size: 13px; margin-top: 0; font-style: italic;">Separate word meaning</p>
+        <p style="font-size: 13px; margin-top: 0; font-style: italic;">Separate word meaning in English and Vietnamese</p>
         <div class="breakdown-container" id="homeBreakdownContainer">
-          <div class="jigsaw-word" onclick="showClue(this, 'when', '(adv): Khi nào, vào lúc nào (từ chỉ thời gian)')">when</div>
-          <div class="jigsaw-word" onclick="showClue(this, 'pigs', '(noun): Những chú lợn / heo (loài vật nặng nề, không biết bay)')">pigs</div>
-          <div class="jigsaw-word" onclick="showClue(this, 'fly', '(verb): Bay lượn trên bầu trời bằng cánh)')">fly</div>
+          <div class="jigsaw-word" onclick="showClue(this, 'when', 'at what time; during the time that', 'khi, khi nào', 'adverb/conjunction', 'trạng từ/liên từ')">when</div>
+          <div class="jigsaw-word" onclick="showClue(this, 'pigs', 'farm animals often raised for pork', 'những con lợn/heo', 'noun', 'danh từ')">pigs</div>
+          <div class="jigsaw-word" onclick="showClue(this, 'fly', 'to move through the air', 'bay', 'verb', 'động từ')">fly</div>
         </div>
-        <div class="clue-display" id="clueBox">💡 <em>Click on each word to see their seperate case file.</em></div>
+        <div class="clue-display" id="clueBox">💡 <em>Click each word to see its English and Vietnamese literal meanings.</em></div>
       </div>
 
       <div class="card col-4 bg-orange">
@@ -118,7 +118,7 @@
       <div class="community-header">
         <h3>🤝 Community Detective Network</h3>
       </div>
-      <p style="font-size: 14px; color: #555; margin-top: -10px; margin-bottom: 20px;">Cộng đồng học sinh Việt Nam cùng nhau tối ưu hóa ý nghĩa và tìm kiếm các cụm từ bắt trend, sát nghĩa nhất:</p>
+      <p style="font-size: 14px; color: #555; margin-top: -10px; margin-bottom: 20px;">The Vietnamese detective community is working together to optimize the meaning and find the most trending and accurate translations.</p>
       <div class="contribution-list" id="contribList">
         <div class="contribution-item">
           <div class="item-details">
@@ -149,6 +149,10 @@
     <div class="card bg-purple" style="text-align: center">
       <h2 style="margin: 0">🧩 Detective Maze</h2>
       <p>Wrong answer = wall blocks. Dead end = game over. Finish line = +100 XP!</p>
+      <div class="maze-topic-picker">
+        <label for="mazeTopicSelect">Case topic</label>
+        <select id="mazeTopicSelect"></select>
+      </div>
     </div>
     <div class="game-container">
       <canvas id="mazeCanvas" width="560" height="560"></canvas>
@@ -169,6 +173,7 @@
     <div class="game-controls">
       <p>Use the <span class="keyboard-keys"><span>W</span> <span>A</span> <span>S</span> <span>D</span></span> keys to move.</p>
       <button class="btn-action" style="background-color: var(--color-pink);" onclick="initGame()">🔄 Create a new Detective Maze</button>
+      <p id="mazeTopicInfo" class="maze-topic-info"></p>
     </div>
     <div class="ranking-menu">
       <h3 style="margin-top: 0; text-align: center;">🏆 Detective Hall of Fame (Top 8)</h3>

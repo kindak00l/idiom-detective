@@ -217,15 +217,301 @@ const literalMeaningHints = {
   your: "belonging to you"
 };
 
+const literalMeaningHintsVi = {
+  a: "một, một cái",
+  about: "về, liên quan đến",
+  act: "hành động, cư xử",
+  actions: "những hành động",
+  add: "thêm vào",
+  after: "sau",
+  air: "không khí",
+  all: "tất cả",
+  an: "một, một cái",
+  and: "và",
+  arm: "cánh tay",
+  around: "xung quanh",
+  at: "ở, tại",
+  back: "trở lại; phía sau",
+  ball: "quả bóng",
+  bandwagon: "xe chở ban nhạc trong diễu hành",
+  bark: "sủa",
+  barking: "đang sủa",
+  be: "là, tồn tại",
+  beans: "đậu",
+  beat: "đánh; đánh bại",
+  benefit: "lợi ích",
+  best: "tốt nhất",
+  birds: "những con chim",
+  bite: "cắn",
+  blessing: "phước lành, điều may mắn",
+  blue: "màu xanh dương",
+  board: "tấm bảng",
+  book: "quyển sách",
+  books: "những quyển sách",
+  bridge: "cây cầu",
+  bridges: "những cây cầu",
+  bullet: "viên đạn",
+  burn: "đốt cháy",
+  bush: "bụi cây",
+  cake: "bánh ngọt",
+  call: "gọi",
+  cart: "xe kéo",
+  cat: "con mèo",
+  caution: "sự thận trọng",
+  chase: "đuổi theo",
+  chew: "nhai",
+  chin: "cằm",
+  cold: "lạnh",
+  come: "đến",
+  corners: "các góc",
+  cost: "có giá, tốn",
+  court: "sân; tòa án",
+  cover: "bìa, lớp phủ",
+  cry: "khóc; kêu lên",
+  curiosity: "sự tò mò",
+  day: "ngày",
+  devil: "ác quỷ",
+  disguise: "sự ngụy trang",
+  dog: "con chó",
+  dogs: "những con chó",
+  doubt: "sự nghi ngờ",
+  down: "xuống",
+  drawing: "bản vẽ",
+  dust: "bụi",
+  earth: "trái đất; mặt đất",
+  easy: "dễ dàng",
+  egg: "quả trứng",
+  eggs: "những quả trứng",
+  elephant: "con voi",
+  every: "mọi, mỗi",
+  eye: "mắt",
+  eyes: "đôi mắt",
+  face: "khuôn mặt; đối mặt",
+  feather: "lông chim",
+  fence: "hàng rào",
+  fiddle: "đàn vĩ cầm",
+  fly: "bay",
+  flies: "bay",
+  flock: "tụ tập thành đàn",
+  for: "cho, dành cho",
+  from: "từ",
+  get: "nhận được; trở nên",
+  give: "đưa, cho",
+  go: "đi",
+  good: "tốt",
+  goose: "con ngỗng",
+  grain: "hạt nhỏ",
+  hand: "bàn tay",
+  hands: "những bàn tay",
+  hang: "treo; ở lại",
+  head: "cái đầu",
+  heat: "sức nóng",
+  heart: "trái tim",
+  horse: "con ngựa",
+  horses: "những con ngựa",
+  in: "trong",
+  injury: "vết thương",
+  insult: "lời xúc phạm",
+  it: "nó",
+  judge: "đánh giá",
+  jump: "nhảy",
+  keep: "giữ, tiếp tục",
+  leg: "chân",
+  let: "để, cho phép",
+  line: "đường, dòng",
+  lines: "các dòng",
+  long: "dài, lâu",
+  look: "nhìn",
+  louder: "to hơn",
+  madness: "sự điên rồ, hỗn loạn",
+  make: "làm, tạo ra",
+  matters: "vấn đề, sự việc",
+  medicine: "thuốc",
+  method: "phương pháp",
+  milk: "sữa",
+  moon: "mặt trăng",
+  music: "âm nhạc",
+  nail: "cái đinh; móng tay",
+  nine: "số chín",
+  no: "không",
+  of: "của",
+  off: "rời khỏi; tắt",
+  on: "trên",
+  once: "một lần",
+  "one's": "của một người nào đó",
+  out: "ra ngoài",
+  pain: "nỗi đau",
+  penny: "đồng xu nhỏ",
+  peeled: "đã bóc vỏ",
+  piece: "một mảnh",
+  pigs: "những con lợn/heo",
+  play: "chơi; đóng vai",
+  put: "đặt, để",
+  rain: "mưa",
+  read: "đọc",
+  red: "màu đỏ",
+  raincheck: "lời hẹn để dịp khác",
+  rule: "quy tắc",
+  sack: "bao tải",
+  salt: "muối",
+  saved: "đã lưu, đã tiết kiệm",
+  say: "nói",
+  see: "nhìn thấy",
+  shine: "chiếu sáng",
+  shoulder: "vai",
+  silver: "bạc; màu bạc",
+  skin: "da",
+  slack: "phần dây chùng; sự dễ dãi",
+  sleeping: "đang ngủ",
+  so: "rất; vì vậy",
+  speak: "nói",
+  spilt: "bị đổ",
+  square: "hình vuông; ô vuông",
+  steal: "ăn cắp",
+  stone: "hòn đá",
+  straight: "thẳng",
+  take: "lấy, nhận",
+  taste: "vị; nếm",
+  teeth: "răng",
+  that: "đó, cái đó",
+  the: "mạo từ xác định",
+  thick: "dày",
+  thin: "mỏng",
+  through: "xuyên qua; vượt qua",
+  throw: "ném",
+  thunder: "sấm",
+  time: "thời gian",
+  to: "đến, để",
+  tongue: "lưỡi",
+  top: "đỉnh, phần trên",
+  towel: "khăn",
+  two: "số hai",
+  under: "dưới",
+  up: "lên",
+  water: "nước",
+  weather: "thời tiết",
+  when: "khi, khi nào",
+  whole: "toàn bộ",
+  wild: "hoang dã; mất kiểm soát",
+  wolf: "con sói",
+  words: "những từ ngữ",
+  worse: "tệ hơn",
+  wrap: "bọc, quấn",
+  yards: "thước Anh; khoảng sân",
+  your: "của bạn"
+};
+
+const wordClassHints = {
+  a: { english: "article", vietnamese: "mạo từ" },
+  about: { english: "preposition", vietnamese: "giới từ" },
+  after: { english: "preposition", vietnamese: "giới từ" },
+  all: { english: "determiner", vietnamese: "từ hạn định" },
+  an: { english: "article", vietnamese: "mạo từ" },
+  and: { english: "conjunction", vietnamese: "liên từ" },
+  around: { english: "preposition", vietnamese: "giới từ" },
+  at: { english: "preposition", vietnamese: "giới từ" },
+  back: { english: "adverb", vietnamese: "trạng từ" },
+  be: { english: "verb", vietnamese: "động từ" },
+  best: { english: "adjective", vietnamese: "tính từ" },
+  bite: { english: "verb", vietnamese: "động từ" },
+  blue: { english: "adjective", vietnamese: "tính từ" },
+  call: { english: "verb", vietnamese: "động từ" },
+  cold: { english: "adjective", vietnamese: "tính từ" },
+  come: { english: "verb", vietnamese: "động từ" },
+  cost: { english: "verb", vietnamese: "động từ" },
+  cry: { english: "verb", vietnamese: "động từ" },
+  down: { english: "adverb", vietnamese: "trạng từ" },
+  easy: { english: "adjective", vietnamese: "tính từ" },
+  every: { english: "determiner", vietnamese: "từ hạn định" },
+  face: { english: "verb/noun", vietnamese: "động từ/danh từ" },
+  fly: { english: "verb", vietnamese: "động từ" },
+  flies: { english: "verb", vietnamese: "động từ" },
+  flock: { english: "verb", vietnamese: "động từ" },
+  for: { english: "preposition", vietnamese: "giới từ" },
+  from: { english: "preposition", vietnamese: "giới từ" },
+  get: { english: "verb", vietnamese: "động từ" },
+  give: { english: "verb", vietnamese: "động từ" },
+  go: { english: "verb", vietnamese: "động từ" },
+  good: { english: "adjective", vietnamese: "tính từ" },
+  hang: { english: "verb", vietnamese: "động từ" },
+  in: { english: "preposition", vietnamese: "giới từ" },
+  it: { english: "pronoun", vietnamese: "đại từ" },
+  judge: { english: "verb", vietnamese: "động từ" },
+  jump: { english: "verb", vietnamese: "động từ" },
+  keep: { english: "verb", vietnamese: "động từ" },
+  let: { english: "verb", vietnamese: "động từ" },
+  long: { english: "adjective", vietnamese: "tính từ" },
+  look: { english: "verb", vietnamese: "động từ" },
+  louder: { english: "adjective/adverb", vietnamese: "tính từ/trạng từ" },
+  make: { english: "verb", vietnamese: "động từ" },
+  no: { english: "determiner", vietnamese: "từ hạn định" },
+  of: { english: "preposition", vietnamese: "giới từ" },
+  off: { english: "adverb/preposition", vietnamese: "trạng từ/giới từ" },
+  on: { english: "preposition", vietnamese: "giới từ" },
+  once: { english: "adverb", vietnamese: "trạng từ" },
+  out: { english: "adverb", vietnamese: "trạng từ" },
+  peeled: { english: "adjective/verb", vietnamese: "tính từ/động từ" },
+  pigs: { english: "noun", vietnamese: "danh từ" },
+  play: { english: "verb", vietnamese: "động từ" },
+  put: { english: "verb", vietnamese: "động từ" },
+  read: { english: "verb", vietnamese: "động từ" },
+  red: { english: "adjective", vietnamese: "tính từ" },
+  saved: { english: "verb/adjective", vietnamese: "động từ/tính từ" },
+  say: { english: "verb", vietnamese: "động từ" },
+  see: { english: "verb", vietnamese: "động từ" },
+  sleeping: { english: "adjective/verb", vietnamese: "tính từ/động từ" },
+  so: { english: "adverb", vietnamese: "trạng từ" },
+  speak: { english: "verb", vietnamese: "động từ" },
+  spilt: { english: "verb/adjective", vietnamese: "động từ/tính từ" },
+  straight: { english: "adjective/adverb", vietnamese: "tính từ/trạng từ" },
+  take: { english: "verb", vietnamese: "động từ" },
+  that: { english: "pronoun/determiner", vietnamese: "đại từ/từ hạn định" },
+  the: { english: "article", vietnamese: "mạo từ" },
+  thick: { english: "adjective", vietnamese: "tính từ" },
+  thin: { english: "adjective", vietnamese: "tính từ" },
+  through: { english: "preposition", vietnamese: "giới từ" },
+  throw: { english: "verb", vietnamese: "động từ" },
+  to: { english: "preposition", vietnamese: "giới từ" },
+  under: { english: "preposition", vietnamese: "giới từ" },
+  up: { english: "adverb/preposition", vietnamese: "trạng từ/giới từ" },
+  when: { english: "adverb/conjunction", vietnamese: "trạng từ/liên từ" },
+  whole: { english: "adjective", vietnamese: "tính từ" },
+  wild: { english: "adjective", vietnamese: "tính từ" },
+  worse: { english: "adjective/adverb", vietnamese: "tính từ/trạng từ" },
+  wrap: { english: "verb", vietnamese: "động từ" },
+  your: { english: "possessive determiner", vietnamese: "từ hạn định sở hữu" }
+};
+
+function getWordClass(word) {
+  const key = word.toLowerCase();
+  if (wordClassHints[key]) return wordClassHints[key];
+  return { english: "noun", vietnamese: "danh từ" };
+}
+
+function normalizeBreakdownItem(item) {
+  const key = item.word.toLowerCase();
+  const english = item.english || item.englishMeaning || item.definitionEn || literalMeaningHints[key] || item.definition || `Literal word: "${item.word}".`;
+  const vietnamese = item.vietnamese || item.vietnameseMeaning || item.definitionVi || literalMeaningHintsVi[key] || item.definition || "Vietnamese meaning not added yet.";
+  const fallbackClass = getWordClass(item.word);
+  const englishClass = item.englishClass || item.wordClass || item.partOfSpeech || item.pos || fallbackClass.english;
+  const vietnameseClass = item.vietnameseClass || item.wordClassVi || item.partOfSpeechVi || item.posVi || fallbackClass.vietnamese;
+  return { word: item.word, english, vietnamese, englishClass, vietnameseClass };
+}
+
 function getBreakdownForIdiom(idiom) {
-  if (idiom.breakdown && idiom.breakdown.length > 0) return idiom.breakdown;
+  if (idiom.breakdown && idiom.breakdown.length > 0) {
+    return idiom.breakdown.map(normalizeBreakdownItem);
+  }
   return idiom.title
     .replace(/[^\w\s']/g, "")
     .split(/\s+/)
     .filter(Boolean)
     .map(word => ({
       word,
-      definition: literalMeaningHints[word.toLowerCase()] || `Literal word: "${word}".`
+      english: literalMeaningHints[word.toLowerCase()] || `Literal word: "${word}".`,
+      vietnamese: literalMeaningHintsVi[word.toLowerCase()] || "Vietnamese meaning not added yet.",
+      englishClass: getWordClass(word).english,
+      vietnameseClass: getWordClass(word).vietnamese
     }));
 }
 
@@ -237,28 +523,61 @@ function showTab(tab) {
   if (activeLink) activeLink.classList.add("active");
 }
 
-function showClue(element, word, definition) {
+function showClue(element, word, english, vietnamese, englishClass = "word", vietnameseClass = "từ") {
   document.querySelectorAll(".jigsaw-word").forEach(w => w.classList.remove("active"));
   if (element) element.classList.add("active");
   const clueBox = document.getElementById("clueBox");
-  if (clueBox) clueBox.innerHTML = `🔎 <strong>Word clue for [${escapeHTML(word)}]:</strong> ${escapeHTML(definition)}`;
+  if (clueBox) {
+    clueBox.innerHTML = `
+      🔎 <strong>Word clue for [${escapeHTML(word)}]</strong>
+      <div><strong>English (${escapeHTML(englishClass)}):</strong> ${escapeHTML(english)}</div>
+      <div><strong>Tiếng Việt (${escapeHTML(vietnameseClass)}):</strong> ${escapeHTML(vietnamese)}</div>
+    `;
+  }
 }
 
 function searchIdioms(query) {
   const normalized = query.trim().toLowerCase();
   if (!normalized) return [];
-  return casesData.filter(idiom =>
-    idiom.title.toLowerCase().includes(normalized) ||
-    idiom.desc.toLowerCase().includes(normalized) ||
-    (idiom.example && idiom.example.toLowerCase().includes(normalized)) ||
-    idiom.tags.some(tag => tag.toLowerCase().includes(normalized))
-  );
+  const queryWords = normalized.match(/[a-z0-9']+/g) || [];
+  return casesData.filter(idiom => {
+    const titleWords = idiom.title.toLowerCase().match(/[a-z0-9']+/g) || [];
+    return queryWords.every(queryWord => titleWords.includes(queryWord));
+  });
+}
+
+function getIdiomImage(idiom) {
+  return idiom.image || idiom.imageUrl || idiom.illustration || "";
+}
+
+function updateHomeIllustration(idiom) {
+  const illustrationBox = document.getElementById("homeIllustrationBox");
+  if (!illustrationBox) return;
+  if (!state.defaultIllustrationHTML) state.defaultIllustrationHTML = illustrationBox.innerHTML;
+
+  const imageSrc = getIdiomImage(idiom);
+  if (!imageSrc) {
+    illustrationBox.innerHTML = state.defaultIllustrationHTML;
+    return;
+  }
+
+  const imageAlt = idiom.imageAlt || `Illustration for ${idiom.title}`;
+  illustrationBox.innerHTML = "";
+  const image = document.createElement("img");
+  image.className = "idiom-illustration";
+  image.src = imageSrc;
+  image.alt = imageAlt;
+  image.addEventListener("error", () => {
+    illustrationBox.innerHTML = state.defaultIllustrationHTML;
+  });
+  illustrationBox.appendChild(image);
 }
 
 function updateHomeIdiom(idiom) {
   if (!idiom) return;
   state.currentSelectedIdiom = idiom.title;
   document.getElementById("homeCaseTitle").innerText = `🗂️ CASE FILE: ${idiom.title}`;
+  updateHomeIllustration(idiom);
   document.getElementById("homeEnglishMeaning").innerText = idiom.englishMeaning || idiom.desc;
   document.getElementById("homeDesc").innerText = idiom.desc;
   document.getElementById("homeStory").innerText = idiom.story || "The origin of this idiom has not been recorded in detail here, but its image gives learners a memorable way to understand the meaning.";
@@ -273,7 +592,7 @@ function updateHomeIdiom(idiom) {
     wordButton.type = "button";
     wordButton.className = "jigsaw-word";
     wordButton.innerText = item.word;
-    wordButton.addEventListener("click", () => showClue(wordButton, item.word, item.definition));
+    wordButton.addEventListener("click", () => showClue(wordButton, item.word, item.english, item.vietnamese, item.englishClass, item.vietnameseClass));
     breakdown.appendChild(wordButton);
   });
   const contextExample = document.getElementById("homeContextExample");
@@ -655,6 +974,7 @@ const canvas = document.getElementById("mazeCanvas");
 const ctx = canvas ? canvas.getContext("2d") : null;
 const TILE_SIZE = 40, COLS = 14, ROWS = 14;
 let mazeMap = [], player = { x: 1, y: 1 }, isGameActive = false, isQuizActive = false, currentGate = null, currentAnswer = "";
+let currentMazeTopic = "all";
 
 const baseMaze = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -674,13 +994,50 @@ const baseMaze = [
 ];
 
 function initGame() {
+  const topicSelect = document.getElementById("mazeTopicSelect");
+  currentMazeTopic = topicSelect ? topicSelect.value : "all";
   mazeMap = JSON.parse(JSON.stringify(baseMaze));
   player = { x: 1, y: 1 };
   isGameActive = true;
   isQuizActive = false;
   document.getElementById("quizOverlay").style.display = "none";
   document.getElementById("msgOverlay").style.display = "none";
+  updateMazeTopicInfo();
   drawMaze();
+}
+
+function getMazeTopics() {
+  return [...new Set(casesData.flatMap(idiom => idiom.tags || []))].sort((a, b) => a.localeCompare(b));
+}
+
+function populateMazeTopicSelect() {
+  const topicSelect = document.getElementById("mazeTopicSelect");
+  if (!topicSelect) return;
+  const topics = getMazeTopics();
+  topicSelect.innerHTML = `
+    <option value="all">All topics</option>
+    ${topics.map(topic => `<option value="${escapeHTML(topic)}">${escapeHTML(topic)}</option>`).join("")}
+  `;
+  topicSelect.addEventListener("change", () => {
+    currentMazeTopic = topicSelect.value;
+    updateMazeTopicInfo();
+    if (document.getElementById("maze").classList.contains("active")) initGame();
+  });
+  updateMazeTopicInfo();
+}
+
+function getMazeQuestionPool() {
+  if (currentMazeTopic === "all") return casesData;
+  const topicPool = casesData.filter(idiom => idiom.tags?.includes(currentMazeTopic));
+  return topicPool.length > 0 ? topicPool : casesData;
+}
+
+function updateMazeTopicInfo() {
+  const info = document.getElementById("mazeTopicInfo");
+  if (!info) return;
+  const pool = getMazeQuestionPool();
+  const topicText = currentMazeTopic === "all" ? "all topics" : currentMazeTopic;
+  info.innerText = `Current maze: ${pool.length} idioms from ${topicText}.`;
 }
 
 function drawMaze() {
@@ -720,10 +1077,18 @@ window.addEventListener("keydown", function(e) {
 function triggerQuiz(x, y) {
   isQuizActive = true;
   currentGate = { x, y };
-  let shuffled = [...casesData].sort(() => 0.5 - Math.random());
-  currentAnswer = shuffled[0].desc;
-  let options = [currentAnswer, shuffled[1]?.desc, shuffled[2]?.desc, shuffled[3]?.desc].filter(v => v).sort(() => 0.5 - Math.random());
-  document.getElementById("quizQuestion").innerText = `Decode this idiom:\n"${shuffled[0].title}"`;
+  const topicQuestions = [...getMazeQuestionPool()].sort(() => 0.5 - Math.random());
+  const answerIdiom = topicQuestions[0];
+  const distractorSource = topicQuestions.length >= 4 ? topicQuestions : casesData;
+  const distractors = distractorSource
+    .filter(idiom => idiom.title !== answerIdiom.title)
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 3)
+    .map(idiom => idiom.desc);
+  currentAnswer = answerIdiom.desc;
+  let options = [currentAnswer, ...distractors].filter(v => v).sort(() => 0.5 - Math.random());
+  const topicLabel = currentMazeTopic === "all" ? "All topics" : currentMazeTopic;
+  document.getElementById("quizQuestion").innerText = `Topic: ${topicLabel}\nDecode this idiom:\n"${answerIdiom.title}"`;
   const container = document.getElementById("quizOptions");
   container.innerHTML = "";
   options.forEach(opt => {
@@ -790,12 +1155,26 @@ function seedDefaultCommunityTranslations() {
 
 // --- INITIALIZATION ---
 document.addEventListener("DOMContentLoaded", () => {
+  const searchBtn = document.getElementById("searchBtn");
+  const idiomInput = document.getElementById("idiomInput");
+  if (searchBtn) searchBtn.addEventListener("click", handleSearch);
+  if (idiomInput) idiomInput.addEventListener("keydown", e => { if (e.key === "Enter") handleSearch(); });
+
   renderCases();
   updateSavedUI();
   renderLeaderboard();
-  initGoogleSignIn();
-  document.getElementById("searchBtn").addEventListener("click", handleSearch);
-  document.getElementById("idiomInput").addEventListener("keydown", e => { if (e.key === "Enter") handleSearch(); });
+  try {
+    populateMazeTopicSelect();
+  } catch (error) {
+    console.error("Maze topic setup failed:", error);
+  }
+  try {
+    initGoogleSignIn();
+  } catch (error) {
+    console.error("Google sign-in setup failed:", error);
+    const status = document.getElementById("googleSignInStatus");
+    if (status) status.innerText = "Google sign-in could not start, but the rest of the site is ready.";
+  }
   
   const contribForm = document.getElementById("contribForm");
   if (contribForm) {

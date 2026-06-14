@@ -396,6 +396,23 @@ nav a.active {
 .col-8 { grid-column: span 8; }
 .col-12 { grid-column: span 12; }
 
+.illustration-box {
+  min-height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.idiom-illustration {
+  width: min(100%, 260px);
+  max-height: 190px;
+  object-fit: contain;
+  border: 3px solid var(--color-dark);
+  border-radius: 12px;
+  background: white;
+  box-shadow: 3px 3px 0 var(--color-dark);
+}
+
 /* LEADERBOARD */
 .ranking-menu {
   background: white;
@@ -464,6 +481,36 @@ canvas {
   font-weight: bold;
   font-size: 18px;
   text-align: center;
+}
+
+.maze-topic-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  background: white;
+  border: 2px solid var(--color-dark);
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 var(--color-dark);
+  font-weight: bold;
+}
+
+.maze-topic-picker select {
+  min-width: 190px;
+  border: 2px solid var(--color-dark);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--color-bg);
+  color: var(--color-dark);
+  font-weight: bold;
+}
+
+.maze-topic-info {
+  min-height: 24px;
+  margin: 12px 0 0;
+  color: #555;
+  font-size: 14px;
 }
 
 .keyboard-keys span {
