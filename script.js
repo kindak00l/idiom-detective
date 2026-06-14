@@ -891,6 +891,13 @@ function handleSignOut() {
   showTab("home");
 }
 
+function handleDisplayNameSignIn() {
+  const displayName = prompt("Enter the display name you want to use for this device:");
+  if (!displayName || displayName.trim() === "") return;
+  completeSignIn({ username: displayName.trim() });
+  alert(`Signed in as ${displayName.trim()} on this device.`);
+}
+
 function handleLogin(event) {
   event.preventDefault();
   const user = document.getElementById("username").value.trim();
@@ -1060,19 +1067,25 @@ function drawMaze() {
 
 window.addEventListener("keydown", function(e) {
   if (!isGameActive || isQuizActive || !document.getElementById("maze").classList.contains("active")) return;
-  let nx = player.x, ny = player.y;
-  if (e.key === "w" || e.key === "W") ny--;
-  if (e.key === "s" || e.key === "S") ny++;
-  if (e.key === "a" || e.key === "A") nx--;
-  if (e.key === "d" || e.key === "D") nx++;
+  let dx = 0, dy = 0;
+  if (e.key === "w" || e.key === "W") dy = -1;
+  if (e.key === "s" || e.key === "S") dy = 1;
+  if (e.key === "a" || e.key === "A") dx = -1;
+  if (e.key === "d" || e.key === "D") dx = 1;
+  if (dx !== 0 || dy !== 0) movePlayer(dx, dy);
+  if (["w","a","s","d"].includes(e.key.toLowerCase())) e.preventDefault();
+});
+
+function movePlayer(dx, dy) {
+  if (!isGameActive || isQuizActive || !document.getElementById("maze").classList.contains("active")) return;
+  let nx = player.x + dx, ny = player.y + dy;
   if (nx < 0 || nx >= COLS || ny < 0 || ny >= ROWS) return;
   let targetTile = mazeMap[ny][nx];
   if (targetTile === 1) { player.x = nx; player.y = ny; }
   else if (targetTile === 2) { player.x = nx; player.y = ny; winGame(); }
   else if (targetTile === 3) triggerQuiz(nx, ny);
   drawMaze();
-  if (["w","a","s","d"].includes(e.key.toLowerCase())) e.preventDefault();
-});
+}
 
 function triggerQuiz(x, y) {
   isQuizActive = true;

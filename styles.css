@@ -474,6 +474,8 @@ canvas {
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
   display: block;
   margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .game-controls {
@@ -521,6 +523,43 @@ canvas {
   border-radius: 6px;
   box-shadow: 2px 2px 0 var(--color-dark);
   margin: 0 5px;
+}
+
+.mobile-maze-controls {
+  width: 180px;
+  display: grid;
+  grid-template-columns: repeat(3, 54px);
+  grid-template-rows: repeat(2, 54px);
+  gap: 6px;
+  justify-content: center;
+  margin: 14px auto 18px;
+  touch-action: manipulation;
+}
+
+.maze-pad-btn {
+  border: 3px solid var(--color-dark);
+  border-radius: 12px;
+  background: white;
+  color: var(--color-dark);
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 3px 3px 0 var(--color-dark);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.maze-pad-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--color-dark);
+  background: var(--color-yellow);
+}
+
+.maze-pad-up {
+  grid-column: 2;
+}
+
+.mobile-login-fallback {
+  margin-top: 12px;
 }
 
 .modal-overlay {

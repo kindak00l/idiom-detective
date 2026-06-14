@@ -172,6 +172,12 @@
     </div>
     <div class="game-controls">
       <p>Use the <span class="keyboard-keys"><span>W</span> <span>A</span> <span>S</span> <span>D</span></span> keys to move.</p>
+      <div class="mobile-maze-controls" aria-label="Maze movement controls">
+        <button type="button" class="maze-pad-btn maze-pad-up" onclick="movePlayer(0, -1)">▲</button>
+        <button type="button" class="maze-pad-btn" onclick="movePlayer(-1, 0)">◀</button>
+        <button type="button" class="maze-pad-btn" onclick="movePlayer(0, 1)">▼</button>
+        <button type="button" class="maze-pad-btn" onclick="movePlayer(1, 0)">▶</button>
+      </div>
       <button class="btn-action" style="background-color: var(--color-pink);" onclick="initGame()">🔄 Create a new Detective Maze</button>
       <p id="mazeTopicInfo" class="maze-topic-info"></p>
     </div>
@@ -248,6 +254,8 @@
       <p style="text-align: center; color: #666; font-size: 13px">Sign in with Google to unlock My Notebook, voting, and XP features.</p>
       <div id="googleSignInButton" class="google-signin-box"></div>
       <p id="googleSignInStatus" class="login-help-text">Add your Google OAuth Client ID in script.js to activate this button.</p>
+      <button type="button" class="btn-login mobile-login-fallback" onclick="handleDisplayNameSignIn()">Continue with display name</button>
+      <p class="login-help-text">Use this classroom fallback if Google sign-in is blocked on a mobile browser.</p>
       <details class="fallback-login">
         <summary>Use demo investigator account</summary>
         <p style="text-align: center; color: #666; font-size: 13px">Demo accounts: admin1 to admin25 | Password: 123456</p>
