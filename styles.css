@@ -529,7 +529,7 @@ canvas {
   width: 180px;
   display: grid;
   grid-template-columns: repeat(3, 54px);
-  grid-template-rows: repeat(2, 54px);
+  grid-template-rows: repeat(3, 54px);
   gap: 6px;
   justify-content: center;
   margin: 14px auto 18px;
@@ -543,6 +543,10 @@ canvas {
   color: var(--color-dark);
   font-size: 24px;
   font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1;
+  -webkit-appearance: none;
+  appearance: none;
   box-shadow: 3px 3px 0 var(--color-dark);
   cursor: pointer;
   touch-action: manipulation;
@@ -556,6 +560,22 @@ canvas {
 
 .maze-pad-up {
   grid-column: 2;
+  grid-row: 1;
+}
+
+.maze-pad-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.maze-pad-down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.maze-pad-right {
+  grid-column: 3;
+  grid-row: 2;
 }
 
 .mobile-login-fallback {

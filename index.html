@@ -173,10 +173,10 @@
     <div class="game-controls">
       <p>Use the <span class="keyboard-keys"><span>W</span> <span>A</span> <span>S</span> <span>D</span></span> keys to move.</p>
       <div class="mobile-maze-controls" aria-label="Maze movement controls">
-        <button type="button" class="maze-pad-btn maze-pad-up" onclick="movePlayer(0, -1)">▲</button>
-        <button type="button" class="maze-pad-btn" onclick="movePlayer(-1, 0)">◀</button>
-        <button type="button" class="maze-pad-btn" onclick="movePlayer(0, 1)">▼</button>
-        <button type="button" class="maze-pad-btn" onclick="movePlayer(1, 0)">▶</button>
+        <button type="button" class="maze-pad-btn maze-pad-up" aria-label="Move up" onclick="movePlayer(0, -1)">&uarr;</button>
+        <button type="button" class="maze-pad-btn maze-pad-left" aria-label="Move left" onclick="movePlayer(-1, 0)">&larr;</button>
+        <button type="button" class="maze-pad-btn maze-pad-down" aria-label="Move down" onclick="movePlayer(0, 1)">&darr;</button>
+        <button type="button" class="maze-pad-btn maze-pad-right" aria-label="Move right" onclick="movePlayer(1, 0)">&rarr;</button>
       </div>
       <button class="btn-action" style="background-color: var(--color-pink);" onclick="initGame()">🔄 Create a new Detective Maze</button>
       <p id="mazeTopicInfo" class="maze-topic-info"></p>
