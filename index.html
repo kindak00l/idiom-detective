@@ -27,7 +27,7 @@
     <a href="#" onclick="showTab('maze'); initGame(); return false;">🎮 Detective Maze</a>
     <a href="#" onclick="showTab('cases'); return false;">Case Files</a>
     <a href="#" id="navContribute" onclick="showTab('contribute'); return false;">Open a New Case</a>
-    <a href="#" id="navSaved" style="display: none" onclick="showTab('saved'); return false;">My Notebook</a>
+    <a href="#" id="navSaved" style="display: none" onclick="showTab('saved'); return false;">My Saved Cases</a>
     <a href="#" id="navLogin" onclick="showTab('login'); return false;">Investigator ID</a>
   </nav>
 </header>
@@ -110,8 +110,7 @@
     </div>
 
     <div class="gamify-actions">
-      <button class="btn-gamify" onclick="saveIdiom(state.currentSelectedIdiom || 'When pigs fly')">➕ Save to My Notebook</button>
-      <button class="btn-gamify" style="background-color: var(--color-orange);" onclick="exportToBlooket(state.currentSelectedIdiom || 'When pigs fly')">🎮 Export to Blooket / Quizizz</button>
+      <button class="btn-gamify" onclick="saveIdiom(state.currentSelectedIdiom || 'When pigs fly')">➕ Save to My Saved Cases</button>
     </div>
 
     <div class="community-box">
@@ -149,6 +148,7 @@
     <div class="card bg-purple" style="text-align: center">
       <h2 style="margin: 0">🧩 Detective Maze</h2>
       <p>Wrong answer = wall blocks. Dead end = game over. Finish line = +100 XP!</p>
+      <p class="maze-create-label">Create a new Detective Maze</p>
       <div class="maze-topic-picker">
         <label for="mazeTopicSelect">Case topic</label>
         <select id="mazeTopicSelect"></select>
@@ -178,7 +178,6 @@
         <button type="button" class="maze-pad-btn maze-pad-down" aria-label="Move down" onclick="movePlayer(0, 1)">&darr;</button>
         <button type="button" class="maze-pad-btn maze-pad-right" aria-label="Move right" onclick="movePlayer(1, 0)">&rarr;</button>
       </div>
-      <button class="btn-action" style="background-color: var(--color-pink);" onclick="initGame()">🔄 Create a new Detective Maze</button>
       <p id="mazeTopicInfo" class="maze-topic-info"></p>
     </div>
     <div class="ranking-menu">
@@ -208,7 +207,7 @@
         <textarea id="detailNotes" rows="6" placeholder="Gõ ghi chú của bạn vào đây..."></textarea>
       </div>
       <button class="btn-action" id="saveNoteBtn">💾 Save Notes</button>
-      <button class="btn-action" id="detailSaveIdiomBtn" style="background-color: var(--color-pink); margin-left: 10px;">➕ Save to My Notebook</button>
+      <button class="btn-action" id="detailSaveIdiomBtn" style="background-color: var(--color-pink); margin-left: 10px;">➕ Save to My Saved Cases</button>
     </div>
     <div class="community-box" style="margin-top: 30px;">
       <div class="community-header">
@@ -240,7 +239,7 @@
 
   <!-- SỔ TAY -->
   <div id="saved" class="tab-page">
-    <h2>📚 My Notebook (Saved Cases)</h2>
+    <h2>📚 My Saved Cases (Notebook)</h2>
     <div style="margin-bottom: 30px">
       <button class="btn-gamify" onclick="exportAllSavedToBlooket()">🎮 Export all to Blooket (CSV)</button>
     </div>
@@ -251,7 +250,7 @@
   <div id="login" class="tab-page">
     <div class="login-form">
       <h2>🔐 Investigator ID</h2>
-      <p style="text-align: center; color: #666; font-size: 13px">Sign in with Google to unlock My Notebook, voting, and XP features.</p>
+      <p style="text-align: center; color: #666; font-size: 13px">Sign in with Google to unlock My Saved Cases, voting, and XP features.</p>
       <div id="googleSignInButton" class="google-signin-box"></div>
       <p id="googleSignInStatus" class="login-help-text">Add your Google OAuth Client ID in script.js to activate this button.</p>
       <button type="button" class="btn-login mobile-login-fallback" onclick="handleDisplayNameSignIn()">Continue with display name</button>

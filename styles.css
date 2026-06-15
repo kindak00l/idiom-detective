@@ -460,6 +460,31 @@ nav a.active {
   border: 2px dashed #ccc;
 }
 
+.saved-note-editor {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin: 10px 0;
+  border: 1px dashed var(--color-dark);
+}
+
+.saved-note-editor label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.saved-note-editor textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 80px;
+  border: 2px solid var(--color-dark);
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 8px;
+  font: inherit;
+}
+
 /* MAZE GAME */
 .game-container {
   text-align: center;
@@ -496,6 +521,12 @@ canvas {
   border-radius: 12px;
   box-shadow: 3px 3px 0 var(--color-dark);
   font-weight: bold;
+}
+
+.maze-create-label {
+  margin: 16px 0 0;
+  font-size: 18px;
+  font-weight: 800;
 }
 
 .maze-topic-picker select {

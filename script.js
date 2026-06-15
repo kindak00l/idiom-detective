@@ -933,11 +933,11 @@ function handleVote(contributionId, voteType, btnElement) {
 }
 
 function saveIdiom(idiomTitle) {
-  if (!state.currentUser) { alert("🔒 Please sign in to use My Notebook."); showTab("login"); return; }
+  if (!state.currentUser) { alert("🔒 Please sign in to use My Saved Cases."); showTab("login"); return; }
   if (state.savedIdioms.has(idiomTitle)) { alert("📝 This idiom is already in your notebook."); return; }
   state.savedIdioms.add(idiomTitle);
   updateSavedUI();
-  alert(`✅ "${idiomTitle}" was added to My Notebook.`);
+  alert(`✅ "${idiomTitle}" was added to My Saved Cases.`);
 }
 
 function updateSavedUI() {
@@ -949,18 +949,21 @@ function updateSavedUI() {
   let html = "";
   state.savedIdioms.forEach(title => {
     const data = casesData.find(c => c.title === title) || { title, desc: "Custom record", example: "N/A" };
-    const userNote = state.userNotes[title] ? state.userNotes[title] : "No notes yet.";
+    const safeTitle = title.replace(/'/g, "\\'");
+    const noteId = `note-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
     html += `
       <div class="case-card bg-yellow">
         <h3>${data.title}</h3>
         <p><strong>Meaning:</strong> ${escapeHTML(data.desc)}</p>
         <p style="font-size: 13px; font-style: italic;"><strong>Example:</strong> "${escapeHTML(data.example)}"</p>
-        <div style="background: white; padding: 10px; border-radius: 8px; font-size: 13px; margin: 10px 0; border: 1px dashed var(--color-dark);">
-          <strong>Notes:</strong> ${escapeHTML(userNote)}
+        <div class="saved-note-editor">
+          <label for="${noteId}"><strong>Notes:</strong></label>
+          <textarea id="${noteId}" rows="4" placeholder="Add your notes for this idiom...">${escapeHTML(state.userNotes[title] || "")}</textarea>
+          <button class="btn-action" style="padding:8px; background-color: var(--color-orange);" onclick="saveNotebookNote('${safeTitle}', '${noteId}')">💾 Save note</button>
         </div>
         <div style="display: flex; gap: 10px;">
-          <button class="btn-action" style="flex:1; padding:8px; background-color: var(--color-purple);" onclick="selectSearchResult('${title.replace(/'/g, "\\'")}')">View</button>
-          <button class="btn-action" style="flex:1; padding:8px; background-color: #ffc5c5;" onclick="removeSaved('${title.replace(/'/g, "\\'")}')">Remove</button>
+          <button class="btn-action" style="flex:1; padding:8px; background-color: var(--color-purple);" onclick="selectSearchResult('${safeTitle}')">View</button>
+          <button class="btn-action" style="flex:1; padding:8px; background-color: #ffc5c5;" onclick="removeSaved('${safeTitle}')">Remove</button>
         </div>
       </div>
     `;
@@ -968,12 +971,35 @@ function updateSavedUI() {
   grid.innerHTML = html;
 }
 
+function saveNotebookNote(title, noteId) {
+  const noteInput = document.getElementById(noteId);
+  if (!noteInput) return;
+  state.userNotes[title] = noteInput.value;
+  alert(`Notes saved for "${title}".`);
+}
+
 function removeSaved(title) { state.savedIdioms.delete(title); updateSavedUI(); }
 
-function exportToBlooket(title) { alert(`🎮 Creating a CSV import set for Blooket Battle Royale.\nTarget idiom: ${title}`); }
+function toCsvCell(value) {
+  return `"${String(value ?? "").replace(/"/g, '""')}"`;
+}
+
 function exportAllSavedToBlooket() { 
   if (state.savedIdioms.size === 0) return alert("Your notebook is empty. Save idioms before exporting.");
-  alert(`🎮 Exporting ${state.savedIdioms.size} idioms in Blooket/Quizizz format. A CSV file will be downloaded.`);
+  const rows = [["Question", "Answer", "Notes"]];
+  state.savedIdioms.forEach(title => {
+    const data = casesData.find(c => c.title === title) || { title, desc: "Custom record" };
+    rows.push([`What does "${data.title}" mean?`, data.desc, state.userNotes[title] || ""]);
+  });
+  const csv = rows.map(row => row.map(toCsvCell).join(",")).join("\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "idiom-detective-saved-cases.csv";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(link.href);
 }
 
 // --- MAZE GAME ---
