@@ -432,7 +432,7 @@ const casesData = [
     diffText: "Hard",
     desc: "Điều không tưởng; việc sẽ không bao giờ xảy ra.",
     tags: ["Humor", "Communication"],
-    example: "She'll clean the room when pigs fly – tức là chuyện đó không bao giờ xảy ra.",
+    example: "She'll clean the room when pigs fly – Chẳng bao giờ cô ấy dọn phòng đâu.",
     englishMeaning: "Something that will never happen or is completely impossible.",
     story: "Thành ngữ này xuất hiện từ thế kỷ 16 trong các văn bản cổ ở Scotland dưới dạng một câu châm biếm. Người xưa mượn hình ảnh con lợn – vốn có thân hình nặng nề, cục mịch và hoàn toàn không có khả năng bay – để phóng đại điều vô lý. Khi ai đó hứa hẹn một điều viển vông, người ta sẽ đáp lại: 'Phải, điều đó sẽ xảy ra khi lợn biết bay!' để biểu thị hoài nghi tuyệt đối.",
     vietnameseEquivalents: ["Còn khuya nhé!", "Đừng có mơ!", "Mặt trời mọc đằng Tây"],
