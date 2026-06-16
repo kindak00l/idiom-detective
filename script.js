@@ -1008,6 +1008,7 @@ const ctx = canvas ? canvas.getContext("2d") : null;
 const TILE_SIZE = 40, COLS = 14, ROWS = 14;
 let mazeMap = [], player = { x: 1, y: 1 }, isGameActive = false, isQuizActive = false, currentGate = null, currentAnswer = "";
 let currentMazeTopic = "all";
+let unusedMazeQuestions = [];
 
 const baseMaze = [
   [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -1029,6 +1030,7 @@ const baseMaze = [
 function initGame() {
   const topicSelect = document.getElementById("mazeTopicSelect");
   currentMazeTopic = topicSelect ? topicSelect.value : "all";
+  resetMazeQuestionQueue();
   mazeMap = JSON.parse(JSON.stringify(baseMaze));
   player = { x: 1, y: 1 };
   isGameActive = true;
@@ -1063,6 +1065,15 @@ function getMazeQuestionPool() {
   if (currentMazeTopic === "all") return casesData;
   const topicPool = casesData.filter(idiom => idiom.tags?.includes(currentMazeTopic));
   return topicPool.length > 0 ? topicPool : casesData;
+}
+
+function resetMazeQuestionQueue() {
+  unusedMazeQuestions = [...getMazeQuestionPool()].sort(() => 0.5 - Math.random());
+}
+
+function getNextMazeQuestion() {
+  if (unusedMazeQuestions.length === 0) resetMazeQuestionQueue();
+  return unusedMazeQuestions.shift();
 }
 
 function updateMazeTopicInfo() {
@@ -1116,8 +1127,8 @@ function movePlayer(dx, dy) {
 function triggerQuiz(x, y) {
   isQuizActive = true;
   currentGate = { x, y };
-  const topicQuestions = [...getMazeQuestionPool()].sort(() => 0.5 - Math.random());
-  const answerIdiom = topicQuestions[0];
+  const answerIdiom = getNextMazeQuestion();
+  const topicQuestions = getMazeQuestionPool();
   const distractorSource = topicQuestions.length >= 4 ? topicQuestions : casesData;
   const distractors = distractorSource
     .filter(idiom => idiom.title !== answerIdiom.title)
